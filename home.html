@@ -13,21 +13,22 @@
             var amount = document.getElementById('amt').value
             var cur = document.getElementById('currency').value
             if(cur=='USD') {
-                finalAmt = amount * 73.38
+                finalAmt = amount / 73.38
                 document.getElementById('imgId').src = 'usd.png'
             } else if(cur=='EUR') {
-                finalAmt = amount * 86.29
+                finalAmt = amount / 86.29
                 document.getElementById('imgId').src = 'eur.jpg'
             } else if(cur=='JPY') {
-                finalAmt = amount * 0.66
+                finalAmt = amount / 0.66
                 document.getElementById('imgId').src = 'jpy.png'
             } else if(cur=='AUD') {
-                finalAmt = amount * 55.85
+                finalAmt = amount / 55.85
                 document.getElementById('imgId').src = 'aud.jpeg'
             } else if(cur=='GBP') {
-                finalAmt = amount * 101.48
+                finalAmt = amount / 101.48
                 document.getElementById('imgId').src = 'gbp.jpg'
             }
+            finalAmt = finalAmt.toFixed(2)
             document.getElementById('res').value = finalAmt
         }
     </script>
@@ -35,11 +36,11 @@
 <body>
     <div id="main" align='center'>
     <div id="header">Currency Converter</div><br/>
-    <label>Enter amount</label>
+    <label>Enter amount in INR</label>
     <input type="text" name="amt" id="amt" /><br/><br/>
     <div class="input-group mb-3" style="width: fit-content;" >
         <div class="input-group-prepend">
-    <label class="input-group-text" for="currency">Convert from</label></div>
+    <label class="input-group-text" for="currency">Convert to</label></div>
     <select class="custom-select" name="currency" id="currency">
         <option>--Choose currency--</option>
         <option value="USD">United States Dollar</option>
@@ -50,7 +51,6 @@
     </select>
     </div><br/><br/>
     <input type="button" class="btn btn-primary" value="Convert" onclick="convert()" /><br/><br/>
-    <label>To INR</label>
     <input type="text" name="res" id="res" />
     <img id="imgId" width="3%" height="3%" />
 </div>
